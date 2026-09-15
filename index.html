@@ -3,11 +3,88 @@
 <header class="topbar"><div class="brand"><span class="brand-mark">F</span><div><strong>FÉNIX</strong><small>DRIVER</small></div></div><button id="settingsBtn" class="icon-btn" aria-label="Configuración">⚙</button></header>
 <main>
 <section id="home" class="screen active">
-  <div class="hero"><div><p class="eyebrow">MI JORNADA</p><h1>Controlá lo que<br><span>realmente ganás.</span></h1></div><div class="status-dot"></div></div>
-  <div class="net-card"><div class="card-label">GANANCIA NETA REAL</div><div id="netValue" class="money">$0</div><div class="target-row"><span>Objetivo diario</span><strong id="targetValue">$60.000</strong></div><div class="progress"><i id="progressBar"></i></div><div id="targetMessage" class="target-message">Iniciá tu jornada para comenzar.</div></div>
-  <div class="stats-grid"><article><span>BRUTO</span><strong id="grossValue">$0</strong></article><article><span>GASTOS</span><strong id="costValue">$0</strong></article><article><span>HORAS</span><strong id="hoursValue">0:00</strong></article><article><span>$/HORA</span><strong id="hourValue">$0</strong></article></div>
-  <button id="startBtn" class="primary-btn">🔥 INICIAR JORNADA</button>
-  <div class="quick-actions"><button data-action="trip">＋ Registrar viaje</button><button data-action="expense">＋ Registrar gasto</button></div>
+  <div class="home-header">
+    <div>
+      <p class="eyebrow">MI JORNADA</p>
+      <h1>Controlá lo que<br><span>realmente ganás.</span></h1>
+    </div>
+    <div class="home-status">
+      <i class="status-dot"></i>
+      <span>EN ESPERA</span>
+    </div>
+  </div>
+
+  <div class="net-card home-net-card">
+    <div class="home-net-head">
+      <div class="card-label">GANANCIA NETA REAL</div>
+      <strong id="targetValue">$60.000</strong>
+    </div>
+
+    <div id="netValue" class="money">$0</div>
+
+    <div class="home-progress">
+      <div class="target-row">
+        <span>Objetivo diario</span>
+        <b id="progressPercent">0%</b>
+      </div>
+      <div class="progress">
+        <i id="progressBar"></i>
+      </div>
+    </div>
+
+    <div id="targetMessage" class="target-message">
+      Iniciá tu jornada para comenzar.
+    </div>
+  </div>
+
+  <div id="homeRecommendation" class="recommendation-card tone-muted">
+    <div class="recommendation-top">
+      <span>⚡ RECOMENDACIÓN FÉNIX</span>
+      <b id="homeAction">ESPERÁ</b>
+    </div>
+
+    <p id="homeActionReason">
+      Fénix está analizando tus señales.
+    </p>
+
+    <div class="recommendation-next">
+      <span>QUÉ HACER</span>
+      <strong id="homeActionNext">
+        Esperá a tener más evidencia.
+      </strong>
+    </div>
+  </div>
+
+  <div class="home-metrics">
+    <article>
+      <span>BRUTO</span>
+      <strong id="grossValue">$0</strong>
+    </article>
+
+    <article>
+      <span>GASTOS</span>
+      <strong id="costValue">$0</strong>
+    </article>
+
+    <article>
+      <span>HORAS</span>
+      <strong id="hoursValue">0:00</strong>
+    </article>
+
+    <article>
+      <span>$/HORA</span>
+      <strong id="hourValue">$0</strong>
+    </article>
+  </div>
+
+  <button id="startBtn" class="primary-btn home-start-btn">
+    🔥 INICIAR JORNADA
+  </button>
+
+  <div class="quick-actions home-quick-actions">
+    <button data-action="trip">＋ Viaje</button>
+    <button data-action="expense">＋ Gasto</button>
+  </div>
 </section>
 <section id="journey" class="screen"><div class="section-title"><p class="eyebrow">JORNADA</p><h2>Tu día, en tiempo real.</h2></div><div class="big-stat"><span>GANANCIA NETA</span><strong id="journeyNet">$0</strong><small id="journeyStatus">Sin jornada activa</small></div><div class="platform-picker"><label>ZONA DE LA JORNADA<input id="zoneInput" type="text" placeholder="Ej.: Centro, Godoy Cruz, Maipú"></label><label>PLATAFORMA DE LA JORNADA<select id="platformSelect"><option>Uber</option><option>Cabify</option><option>DiDi</option><option>inDrive</option><option>Otra</option></select></label></div><div class="insight"><span>✦</span><div><b>COPILOTO</b><p id="insightText">Cuando registres tus primeros viajes, Fénix empezará a analizar tu rendimiento.</p></div></div><button class="primary-btn" data-action="trip">＋ REGISTRAR VIAJE</button></section>
 <section id="radar" class="screen">

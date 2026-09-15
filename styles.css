@@ -40,3 +40,288 @@ html{touch-action:manipulation;-webkit-tap-highlight-color:transparent}body{over
 .hub-card strong{font-size:15px}
 .hub-card small{color:var(--muted);font-size:11px;line-height:1.4}
 @media(max-width:430px){.bottom-nav{width:calc(100% - 10px);bottom:7px;grid-template-columns:repeat(5,1fr)}.nav{min-width:0;font-size:15px}.nav small{font-size:8px}.hub-grid{gap:8px}.hub-card{min-height:118px;padding:14px}}
+
+/* V2.8 — dashboard limpio y orientado a la decisión */
+
+.home-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:18px
+}
+
+.home-header h1{
+  font-size:32px;
+  line-height:1.04;
+  margin:0;
+  letter-spacing:-.045em
+}
+
+.home-header h1 span{
+  color:var(--fire2)
+}
+
+.home-status{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-top:5px;
+  padding:7px 9px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  color:var(--muted);
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.1em;
+  white-space:nowrap
+}
+
+.home-status .status-dot{
+  width:7px;
+  height:7px;
+  margin:0;
+  background:#666
+}
+
+.home-net-card{
+  padding:20px;
+  margin-bottom:12px;
+  background:linear-gradient(145deg,#171b20,#101317);
+  box-shadow:0 14px 35px rgba(0,0,0,.18)
+}
+
+.home-net-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px
+}
+
+.home-net-head>strong{
+  font-size:11px;
+  color:#eee
+}
+
+.home-net-card .money{
+  font-size:50px;
+  line-height:1;
+  margin:9px 0 22px
+}
+
+.home-progress .target-row{
+  font-size:11px
+}
+
+.home-progress .target-row b{
+  color:var(--fire2);
+  font-size:11px
+}
+
+.home-progress .progress{
+  height:7px;
+  margin-top:7px
+}
+
+.recommendation-card{
+  padding:18px 19px;
+  margin-bottom:12px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:linear-gradient(145deg,#15191e,#0e1114)
+}
+
+.recommendation-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px
+}
+
+.recommendation-top>span{
+  color:var(--muted);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.14em
+}
+
+.recommendation-top>b{
+  font-size:16px;
+  letter-spacing:.01em
+}
+
+.recommendation-card p{
+  margin:9px 0 0;
+  color:#c3c7cd;
+  font-size:12px;
+  line-height:1.45
+}
+
+.recommendation-next{
+  margin-top:13px;
+  padding-top:11px;
+  border-top:1px solid var(--line)
+}
+
+.recommendation-next span{
+  display:block;
+  color:var(--muted);
+  font-size:8px;
+  letter-spacing:.14em
+}
+
+.recommendation-next strong{
+  display:block;
+  margin-top:4px;
+  color:#eee;
+  font-size:12px;
+  line-height:1.4
+}
+
+.recommendation-card.tone-green{
+  border-color:#31513a
+}
+
+.recommendation-card.tone-green b{
+  color:#8ee0a1
+}
+
+.recommendation-card.tone-fire{
+  border-color:#5a3a22
+}
+
+.recommendation-card.tone-fire b{
+  color:var(--fire2)
+}
+
+.recommendation-card.tone-amber{
+  border-color:#55451f
+}
+
+.recommendation-card.tone-amber b{
+  color:#f3c45d
+}
+
+.recommendation-card.tone-purple{
+  border-color:#493451
+}
+
+.recommendation-card.tone-purple b{
+  color:#d39bea
+}
+
+.recommendation-card.tone-muted b{
+  color:#b8bec7
+}
+
+.home-metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  margin-bottom:12px
+}
+
+.home-metrics article{
+  background:var(--panel);
+  padding:14px 12px;
+  min-width:0
+}
+
+.home-metrics span{
+  display:block;
+  color:var(--muted);
+  font-size:8px;
+  letter-spacing:.13em
+}
+
+.home-metrics strong{
+  display:block;
+  font-size:17px;
+  margin-top:5px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
+}
+
+.home-start-btn{
+  margin-top:0;
+  min-height:52px;
+  font-size:13px
+}
+
+.home-quick-actions{
+  margin-top:8px
+}
+
+.home-quick-actions button{
+  min-height:44px;
+  font-weight:800;
+  font-size:12px
+}
+
+@media(max-width:430px){
+
+  .screen{
+    padding:22px 14px
+  }
+
+  .home-header{
+    margin-bottom:14px
+  }
+
+  .home-header h1{
+    font-size:28px
+  }
+
+  .home-status{
+    font-size:7px;
+    padding:6px 8px
+  }
+
+  .home-net-card{
+    padding:18px
+  }
+
+  .home-net-card .money{
+    font-size:46px;
+    margin-bottom:20px
+  }
+
+  .recommendation-card{
+    padding:16px
+  }
+
+  .recommendation-top{
+    align-items:flex-start
+  }
+
+  .recommendation-top>b{
+    font-size:15px;
+    text-align:right
+  }
+
+  .home-metrics article{
+    padding:13px 9px
+  }
+
+  .home-metrics span{
+    font-size:7px
+  }
+
+  .home-metrics strong{
+    font-size:15px
+  }
+
+  .home-start-btn{
+    min-height:54px
+  }
+
+  .home-quick-actions button{
+    min-height:46px
+  }
+}
