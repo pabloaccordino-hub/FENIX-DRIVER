@@ -1,4 +1,4 @@
-const CACHE='fenix-driver-v2-8';
+const CACHE='fenix-driver-v2-9-1';
 const ASSETS=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./icon-192.png','./icon-512.png',
 './src/finance.js','./src/journey.js','./src/vehicle.js','./src/objective.js','./src/history.js','./src/radar.js','./src/predictive.js','./src/platforms.js','./src/decision.js','./src/journey-intelligence.js','./src/opportunity-radar.js','./src/intelligence-2.js','./src/external-context.js','./src/fenix-score.js','./src/action.js','./src/autopilot.js','./src/copilot.js'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
