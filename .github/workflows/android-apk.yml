@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build-apk:
     runs-on: ubuntu-latest
@@ -83,3 +86,16 @@ jobs:
         with:
           name: FENIX-DRIVER-V2.9-APK
           path: FENIX-DRIVER-V2.9.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v2.9.0
+          name: Fénix Driver V2.9
+          body: |
+            # 🔥 Fénix Driver V2.9
+
+            Nueva versión de Fénix Driver.
+
+            APK instalable para Android.
+          files: FENIX-DRIVER-V2.9.apk
