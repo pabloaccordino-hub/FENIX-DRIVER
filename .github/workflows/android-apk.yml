@@ -1,0 +1,85 @@
+name: Build Fenix Driver APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Capacitor
+        run: npm install --no-save @capacitor/core @capacitor/cli @capacitor/android
+
+      - name: Prepare web app
+        run: |
+          rm -rf dist
+          mkdir -p dist
+          cp index.html dist/
+          cp styles.css dist/
+          cp app.js dist/
+          cp manifest.webmanifest dist/
+          cp sw.js dist/
+          cp icon-192.png dist/
+          cp icon-512.png dist/
+          cp -r src dist/
+
+      - name: Create Capacitor config
+        run: |
+          cat > capacitor.config.json <<'JSON'
+          {
+            "appId": "com.fenixdriver.app",
+            "appName": "Fénix Driver",
+            "webDir": "dist",
+            "bundledWebRuntime": false,
+            "server": {
+              "androidScheme": "https"
+            }
+          }
+          JSON
+
+      - name: Add Android platform
+        run: npx cap add android
+
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      - name: Build APK
+        working-directory: android
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Rename APK
+        run: |
+          cp android/app/build/outputs/apk/debug/app-debug.apk FENIX-DRIVER-V2.9.apk
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: FENIX-DRIVER-V2.9-APK
+          path: FENIX-DRIVER-V2.9.apk
